@@ -57,42 +57,30 @@ public class model implements BaseModel{
 //            }
 //        }).start();
 
-        try {
-            OkHttpClient client = new OkHttpClient();
-            Request request =new Request.Builder().url("https://5305ddf2.r16.cpolar.top/files/"+url)
-                    .build();
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-
-                }
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    if(length!=0){
-                        String  data =response.body().string();
-                        JSONArray array = null;
-                        try {
-                            array = new JSONArray(data);
-                            String[] wen = new String[length];
-                            for(int i=0;i<array.length();i++){
-                                wen[i]=array.getString(i);
-                            }
-                            callback.onSuccess(wen,length);
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }else {
-                        Bitmap[] Map = new Bitmap[1];
-                        Bitmap bitmap = BitmapFactory.decodeStream(response.body().byteStream());
-                        Map[0]=bitmap;
-                        callback.onSuccess(Map,length);
+        OkHttpClient client = new OkHttpClient();
+        Request request =new Request.Builder().url("https://5305ddf2.r16.cpolar.top/files/"+url)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                callback.onFailure();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String  data =response.body().string();
+                JSONArray array = null;
+                try {
+                    array = new JSONArray(data);
+                    String[] wen = new String[length];
+                    for(int i=0;i<array.length();i++){
+                        wen[i]=array.getString(i);
                     }
+                    callback.onSuccess(wen,length);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-            callback.onFailure();
-        }
+            }
+        });
 
     }
 
