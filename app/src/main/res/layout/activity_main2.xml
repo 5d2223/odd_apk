@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/arrow_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="ODD治疗评估"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/notice"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/notice" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/zhuye"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/home_fill" />
+
+        <Button
+            android:id="@+id/jieshao"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="40dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/question" />
+
+        <Button
+            android:id="@+id/wenjuan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="40dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/log" />
+
+        <Button
+            android:id="@+id/shezhi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/people" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb">
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="682dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

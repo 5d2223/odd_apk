@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="button" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+
+        <item name="colorOnSecondary">@color/white</item>
+
+    </style>
+
+
+</resources>

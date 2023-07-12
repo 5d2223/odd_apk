@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEFCD"
+    >
+
+    <me.codeboy.android.aligntextview.AlignTextView
+        android:id="@+id/textView5"
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textview"
+        android:padding="8dp"
+        android:text="美国精神病学协会出版的《精神障碍诊断与统计手册》中列出了诊断ODD的标准。请根据实际情况评估您的孩子在六个月内是否持续存在下列情绪行为和症状"
+        android:textColor="#673AB7"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <CheckBox
+        android:id="@+id/cb1"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="1.经常发脾气"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <CheckBox
+        android:id="@+id/cb2"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="2.经常和成人争吵"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb1" />
+
+    <CheckBox
+        android:id="@+id/cb3"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="3.经常主动对抗或拒绝听从成人的要求\n或规则"
+        android:textSize="18dp"
+
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb2" />
+
+    <CheckBox
+        android:id="@+id/cb4"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="4.经常故意惹恼他人"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb3" />
+
+    <CheckBox
+        android:id="@+id/cb5"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="5.经常因自己的过失或错误而指责他人"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb4" />
+
+    <CheckBox
+        android:id="@+id/cb8"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="8.经常怀恨或报复"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb7" />
+
+    <CheckBox
+        android:id="@+id/cb6"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="6.易怒或容易被他人激怒"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb5" />
+
+    <CheckBox
+        android:id="@+id/cb7"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="7.经常生气和不满"
+        android:textSize="18dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cb6" />
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:fab_icon="@drawable/right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:fab_colorNormal="#FF9800"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

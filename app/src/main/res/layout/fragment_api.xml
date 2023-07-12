@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFEFCD"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:id="@+id/wen2"
+        android:layout_width="350dp"
+        android:layout_height="167dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/textview"
+        android:gravity="left"
+        android:padding="8dp"
+        android:text="正在加载问题......"
+        android:textColor="#673AB7"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="300dp"
+        android:textSize="20dp"
+        android:id="@+id/b12"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button"
+        android:text="总是如此"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wen2" />
+
+    <Button
+        android:layout_width="300dp"
+        android:textSize="20dp"
+        android:id="@+id/b13"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button"
+        android:text="多数时候"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b12" />
+
+    <Button
+        android:layout_width="300dp"
+        android:textSize="20dp"
+        android:id="@+id/b14"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button"
+        android:text="有些时候"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b13" />
+
+    <Button
+        android:layout_width="300dp"
+        android:textSize="20dp"
+        android:id="@+id/b15"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button"
+        android:text="从未如此"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b14" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
