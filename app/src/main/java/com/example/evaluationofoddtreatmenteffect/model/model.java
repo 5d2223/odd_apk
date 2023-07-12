@@ -34,28 +34,6 @@ public class model implements BaseModel{
     }
 
     public void request(final callback callback,String url,int length){
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    OkHttpClient client = new OkHttpClient();
-//                    Request request =new Request.Builder().url("https://5305ddf2.r16.cpolar.top/files/"+url)
-//                            .build();
-//                    Response response = client.newCall(request).execute();
-//                    String  data =response.body().string();
-//                    JSONArray array = new JSONArray(data);
-//                    String[] wen = new String[length];
-//                    for(int i=0;i<array.length();i++){
-//                        wen[i]=array.getString(i);
-//                    }
-//                    callback.onSuccess(wen);
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                    callback.onFailure();
-//                }
-//            }
-//        }).start();
 
         OkHttpClient client = new OkHttpClient();
         Request request =new Request.Builder().url("https://5305ddf2.r16.cpolar.top/files/"+url)
