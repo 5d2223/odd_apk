@@ -1,9 +1,5 @@
 package com.example.evaluationofoddtreatmenteffect.model;
 
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
 import com.example.evaluationofoddtreatmenteffect.bean.results;
 
 import org.json.JSONArray;
