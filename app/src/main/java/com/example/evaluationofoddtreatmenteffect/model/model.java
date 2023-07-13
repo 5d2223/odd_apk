@@ -31,9 +31,6 @@ public class model implements BaseModel{
 
     public void request(final callback callback,String url,int length){
 
-//        异步请求Tomcat上的文件
-//        异步不用新建线程
-//        同步方法需要创建新线程
         OkHttpClient client = new OkHttpClient();
         Request request =new Request.Builder().url("https://5305ddf2.r16.cpolar.top/files/"+url)
                 .build();
