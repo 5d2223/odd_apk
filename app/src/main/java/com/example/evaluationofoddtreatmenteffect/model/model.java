@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import com.example.evaluationofoddtreatmenteffect.precenter.callback;
+import com.example.evaluationofoddtreatmenteffect.Presenter.callback;
 
 import java.io.IOException;
 

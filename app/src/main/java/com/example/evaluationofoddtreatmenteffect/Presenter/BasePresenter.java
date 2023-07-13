@@ -1,6 +1,6 @@
-package com.example.evaluationofoddtreatmenteffect.precenter;
+package com.example.evaluationofoddtreatmenteffect.Presenter;
 
-public interface BasePrecenter {
+public interface BasePresenter {
 //    发起网络请求调用特定url数据
     void question(String url,int length);
 

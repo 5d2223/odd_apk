@@ -1,4 +1,4 @@
-package com.example.evaluationofoddtreatmenteffect.precenter;
+package com.example.evaluationofoddtreatmenteffect.Presenter;
 
 import android.graphics.Bitmap;
 import android.util.Log;
@@ -10,16 +10,15 @@ import com.example.evaluationofoddtreatmenteffect.view.BaseView;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
-import org.litepal.LitePal;
 
 
-public class Precenter implements BasePrecenter,callback{
+public class Presenter implements BasePresenter,callback{
 
     public BaseModel Imodel;
     public BaseView Iview;
 
 
-    public Precenter(BaseView view){
+    public Presenter(BaseView view){
         Imodel = new model();
         Iview = view;
     }
@@ -169,7 +168,7 @@ public class Precenter implements BasePrecenter,callback{
     }
 
     public void question(String url,int length){
-        Imodel.request(Precenter.this,url,length);
+        Imodel.request(Presenter.this,url,length);
     }
 
     @Override

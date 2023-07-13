@@ -1,7 +1,7 @@
 package com.example.evaluationofoddtreatmenteffect.model;
 
 import com.example.evaluationofoddtreatmenteffect.bean.results;
-import com.example.evaluationofoddtreatmenteffect.precenter.callback;
+import com.example.evaluationofoddtreatmenteffect.Presenter.callback;
 
 public interface BaseModel {
 

@@ -1,8 +1,6 @@
 package com.example.evaluationofoddtreatmenteffect.view;
 
-import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,15 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.adapter.myAdapter;
 import com.example.evaluationofoddtreatmenteffect.bean.jieshao;
-import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
-import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class fragment_jieshao extends Fragment implements BaseView{
 
-    public BasePrecenter precenter;
+    public BasePresenter precenter;
     public RecyclerView recyclerView;
 
     public myAdapter myAdapter;
@@ -41,7 +39,7 @@ public class fragment_jieshao extends Fragment implements BaseView{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
 
-        precenter =new Precenter(fragment_jieshao.this);
+        precenter =new Presenter(fragment_jieshao.this);
         precenter.question("wenjuan.json",5);
 
         View view = inflater.inflate(R.layout.fragment_jieshao,container,false);

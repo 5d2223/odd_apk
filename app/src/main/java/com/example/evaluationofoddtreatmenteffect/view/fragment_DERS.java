@@ -11,11 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.evaluationofoddtreatmenteffect.R;
-import com.example.evaluationofoddtreatmenteffect.bean.results;
-import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
-import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
-
-import org.litepal.tablemanager.Connector;
+import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 public class fragment_DERS extends Fragment implements View.OnClickListener,BaseView{
 
@@ -25,7 +22,7 @@ public class fragment_DERS extends Fragment implements View.OnClickListener,Base
     public Button button1,button2,button3,button4,button5;
     TextView textView;
 
-    public BasePrecenter precenter;
+    public BasePresenter precenter;
 
     @Nullable
     @Override
@@ -46,7 +43,7 @@ public class fragment_DERS extends Fragment implements View.OnClickListener,Base
         button4.setOnClickListener(this);
         button5.setOnClickListener(this);
 
-        precenter =new Precenter(fragment_DERS.this);
+        precenter =new Presenter(fragment_DERS.this);
         precenter.question("DERS.json",36);
 
         return view;

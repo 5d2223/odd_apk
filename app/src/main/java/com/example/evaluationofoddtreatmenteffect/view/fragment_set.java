@@ -7,22 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.example.evaluationofoddtreatmenteffect.R;
-import com.example.evaluationofoddtreatmenteffect.bean.results;
-import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
-import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
-
-import org.litepal.tablemanager.Connector;
+import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 public class fragment_set extends Fragment implements BaseView {
 
     public EditText text;
     public Button button;
-    public BasePrecenter precenter;
+    public BasePresenter precenter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +31,7 @@ public class fragment_set extends Fragment implements BaseView {
             text.setHint(getArguments().get("1").toString());
         }
 
-        precenter = new Precenter(fragment_set.this);
+        precenter = new Presenter(fragment_set.this);
 
         button = view.findViewById(R.id.bt);
         button.setOnClickListener(new View.OnClickListener() {

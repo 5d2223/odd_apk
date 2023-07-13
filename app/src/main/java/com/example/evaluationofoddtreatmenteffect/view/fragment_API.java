@@ -3,8 +3,6 @@ package com.example.evaluationofoddtreatmenteffect.view;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.evaluationofoddtreatmenteffect.R;
-import com.example.evaluationofoddtreatmenteffect.bean.results;
-import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
-import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
-
-import org.json.JSONArray;
-import org.litepal.tablemanager.Connector;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 public class fragment_API extends Fragment implements View.OnClickListener,BaseView{
 
@@ -48,7 +38,7 @@ public class fragment_API extends Fragment implements View.OnClickListener,BaseV
     private int count = 1;
     private int score = 0;
 
-    public BasePrecenter precenter;
+    public BasePresenter precenter;
 
     @Nullable
     @Override
@@ -66,7 +56,7 @@ public class fragment_API extends Fragment implements View.OnClickListener,BaseV
         button3.setOnClickListener(this);
         button4.setOnClickListener(this);
 
-        precenter = new Precenter(fragment_API.this);
+        precenter = new Presenter(fragment_API.this);
         precenter.question("API.json",9);
 
         return view;

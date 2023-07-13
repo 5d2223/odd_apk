@@ -3,8 +3,6 @@ package com.example.evaluationofoddtreatmenteffect.view;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.evaluationofoddtreatmenteffect.R;
-import com.example.evaluationofoddtreatmenteffect.bean.results;
-import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
-import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
-
-
-import org.litepal.tablemanager.Connector;
+import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 
 public class fragment_FACES extends Fragment implements View.OnClickListener,BaseView{
@@ -43,7 +37,7 @@ public class fragment_FACES extends Fragment implements View.OnClickListener,Bas
     TextView textView;
     public Button button1,button2,button3,button4,button5;
 
-    public BasePrecenter precenter;
+    public BasePresenter precenter;
 
     @Nullable
     @Override
@@ -62,7 +56,7 @@ public class fragment_FACES extends Fragment implements View.OnClickListener,Bas
         button4.setOnClickListener(this);
         button5.setOnClickListener(this);
 
-        precenter = new Precenter(fragment_FACES.this);
+        precenter = new Presenter(fragment_FACES.this);
         precenter.question("FACES.json",30);
 
         return view;

@@ -6,24 +6,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
-import org.litepal.LitePal;
-import org.litepal.tablemanager.Connector;
-
 import androidx.annotation.Nullable;
 
 import com.example.evaluationofoddtreatmenteffect.R;
-import com.example.evaluationofoddtreatmenteffect.bean.results;
-import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
-import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
+import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 import java.util.Objects;
 
@@ -33,7 +26,7 @@ public class fragment_shezhi extends Fragment implements View.OnClickListener,Ba
     public TextView phone,mail,wechat;
 
 
-    BasePrecenter precenter;
+    BasePresenter precenter;
 
 
     @Nullable
@@ -56,7 +49,7 @@ public class fragment_shezhi extends Fragment implements View.OnClickListener,Ba
         send.setOnClickListener(this);
         quit.setOnClickListener(this);
 
-        precenter = new Precenter(fragment_shezhi.this);
+        precenter = new Presenter(fragment_shezhi.this);
         precenter.DatabaseShow();
 
 
