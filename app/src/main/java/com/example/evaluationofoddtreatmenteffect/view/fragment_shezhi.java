@@ -25,10 +25,13 @@ import com.example.evaluationofoddtreatmenteffect.bean.results;
 import com.example.evaluationofoddtreatmenteffect.precenter.BasePrecenter;
 import com.example.evaluationofoddtreatmenteffect.precenter.Precenter;
 
+import java.util.Objects;
+
 public class fragment_shezhi extends Fragment implements View.OnClickListener,BaseView{
 
     public Button tian1,tian2,tian3,send,quit;
     public TextView phone,mail,wechat;
+
 
     BasePrecenter precenter;
 
@@ -59,32 +62,30 @@ public class fragment_shezhi extends Fragment implements View.OnClickListener,Ba
 
         return view;
     }
+    //    跳转至填写信息的fragment并携带bundle用于判断是填写哪类信息
+    public void tianxie(String tip){
+        fragment_set set1 = new fragment_set();
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("1",tip);
+        set1.setArguments(bundle1);
+        getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,set1).commit();
+    }
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tian1:
-                fragment_set set1 = new fragment_set();
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("1","请输入手机号！");
-                set1.setArguments(bundle1);
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,set1).commit();
+                tianxie("请输入手机号！");
                 break;
             case R.id.tian2:
-                fragment_set set2 = new fragment_set();
-                Bundle bundle2 = new Bundle();
-                bundle2.putString("1","请输入邮箱！");
-                set2.setArguments(bundle2);
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,set2).commit();
+                tianxie("请输入邮箱！");
                 break;
             case R.id.tian3:
-                fragment_set set3 = new fragment_set();
-                Bundle bundle3 = new Bundle();
-                bundle3.putString("1","请输入微信！");
-                set3.setArguments(bundle3);
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,set3).commit();
+                tianxie("请输入微信！");
                 break;
             case R.id.send:
+//                调用发送邮件功能并弹出Dialog提示成功之后跳转至浏览器页面查询
                 precenter.sendEmail();
 
                 AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
@@ -114,19 +115,20 @@ public class fragment_shezhi extends Fragment implements View.OnClickListener,Ba
 
     }
 
+//    从precenter调用show方法之后回调方法用于展示个人信息
     @Override
     public void Display_personal_information(String[] inform) {
-        if(inform[0]!=null){
+        if(!Objects.equals(inform[0], "0")){
             phone.setText("手机："+inform[0]);
         }else {
             phone.setText("手机");
         }
-        if(inform[1]!=null){
+        if(!Objects.equals(inform[1], "0")){
             mail.setText("邮箱："+inform[1]);
         }else{
             mail.setText("邮箱");
         }
-        if(inform[2]!=null){
+        if(!Objects.equals(inform[2], "0")){
             wechat.setText("微信："+inform[2]);
         }else {
             wechat.setText("微信");

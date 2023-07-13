@@ -14,10 +14,13 @@ import com.example.evaluationofoddtreatmenteffect.bean.jieshao;
 
 import java.util.List;
 
+//recycleview适配器
 public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder>{
 
+//    列表数据
     private List<jieshao> list;
 
+//    更新数据
     public void setData(List<jieshao> List){
         list = List;
     }
@@ -33,6 +36,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder>{
         return new ViewHolder(view);
     }
 
+//    viewholder中的布局和数据想绑定设置
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mess.setText(list.get(position).getJieshao());
@@ -45,6 +49,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder>{
         return list.size();
     }
 
+//    自定义个recycleview的ViewHolder将viewholder与item子类布局相关联
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView mess;
         ImageView img;

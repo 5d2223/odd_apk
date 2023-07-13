@@ -68,6 +68,7 @@ public class fragment_FACES extends Fragment implements View.OnClickListener,Bas
         return view;
     }
 
+//    faces问卷题目展示和得分回传
     public void FacesScore(){
         count++;
         Bundle bundle = new Bundle();

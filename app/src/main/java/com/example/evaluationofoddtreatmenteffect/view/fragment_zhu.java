@@ -11,6 +11,7 @@ import android.app.Fragment;
 
 import com.example.evaluationofoddtreatmenteffect.R;
 
+//展示fragment主页内容
 public class fragment_zhu extends Fragment {
     @Nullable
     @Override

@@ -71,6 +71,7 @@ public class fragment_API extends Fragment implements View.OnClickListener,BaseV
 
         return view;
     }
+//    Api问卷题目展示和得分回传
     public void ApiScore(){
         count++;
         Bundle bundle = new Bundle();

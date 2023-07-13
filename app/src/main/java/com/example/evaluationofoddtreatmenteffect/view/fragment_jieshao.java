@@ -59,6 +59,8 @@ public class fragment_jieshao extends Fragment implements BaseView{
 
     int count =0;
 
+
+//    从网络请求介绍文字并更新recycleview
     @Override
     public <T> void wenjuan(T[] data) {
         text = (String[]) data;

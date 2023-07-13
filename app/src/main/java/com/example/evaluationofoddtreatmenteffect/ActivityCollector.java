@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ActivityCollector {
 
+//    活动收集器，便于活动的一次性销毁
     public static List<Activity> activities = new ArrayList<>();
 
     public static void addActivity(Activity activity){

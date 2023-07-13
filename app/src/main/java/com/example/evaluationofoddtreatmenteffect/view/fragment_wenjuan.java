@@ -20,7 +20,6 @@ public class fragment_wenjuan extends Fragment implements View.OnClickListener{
     public Button faces,erc,ders,api,odd;
     public TextView show;
 
-
     public void ButtonBackground(){
         if(getArguments()!=null){
             show.setText(getArguments().get("score").toString());

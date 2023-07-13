@@ -52,6 +52,7 @@ public class fragment_DERS extends Fragment implements View.OnClickListener,Base
         return view;
     }
 
+//    ders问卷题目展示和得分回传
     public void DersScore(){
         Bundle bundle = new Bundle();
         fragment_wenjuan wenjuan = new fragment_wenjuan();

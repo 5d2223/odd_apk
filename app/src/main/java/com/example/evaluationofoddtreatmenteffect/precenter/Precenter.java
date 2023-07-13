@@ -10,6 +10,7 @@ import com.example.evaluationofoddtreatmenteffect.view.BaseView;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
+import org.litepal.LitePal;
 
 
 public class Precenter implements BasePrecenter,callback{
@@ -67,13 +68,23 @@ public class Precenter implements BasePrecenter,callback{
     @Override
     public void DatabaseShow() {
         results results = Imodel.ShowDatabase();
-        String phone = results.getPhone();
-        String Mail  = results.getMail();
-        String Wechat = results.getWechat();
+        String phone;
+        String Mail;
+        String Wechat;
+        if (results==null){
+            phone = "0";
+            Mail  ="0";
+            Wechat = "0";
+        }else {
+            phone = results.getPhone();
+            Mail  =results.getMail();
+            Wechat = results.getWechat();
+        }
         String[] message = new String[]{phone,Mail,Wechat};
         Iview.Display_personal_information(message);
     }
 
+//    从model中获得数据库数据，根据数据分析给出治疗意见
     public String data(){
         String data = null;
         results results = Imodel.ShowDatabase();

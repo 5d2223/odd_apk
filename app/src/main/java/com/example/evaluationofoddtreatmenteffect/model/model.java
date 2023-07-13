@@ -18,6 +18,8 @@ import com.example.evaluationofoddtreatmenteffect.precenter.callback;
 import java.io.IOException;
 
 public class model implements BaseModel{
+
+
     public results SetDatabase(){
         Connector.getDatabase();
         return new results();
@@ -32,7 +34,7 @@ public class model implements BaseModel{
     public void request(final callback callback,String url,int length){
 
         OkHttpClient client = new OkHttpClient();
-        Request request =new Request.Builder().url("https://5305ddf2.r16.cpolar.top/files/"+url)
+        Request request =new Request.Builder().url("https://58da9292.r16.cpolar.top/files/"+url)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

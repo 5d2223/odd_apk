@@ -2,6 +2,7 @@ package com.example.evaluationofoddtreatmenteffect.bean;
 
 import org.litepal.crud.LitePalSupport;
 
+//litepal数据库中存放数据的基类
 public class results extends LitePalSupport {
 
     private int ODD;

@@ -1,5 +1,6 @@
 package com.example.evaluationofoddtreatmenteffect.bean;
 
+//问卷介绍单个item展示内容基类
 public class jieshao {
     private String jieshao;
 

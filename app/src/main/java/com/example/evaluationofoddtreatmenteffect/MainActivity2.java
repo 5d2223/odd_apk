@@ -16,7 +16,7 @@ import com.example.evaluationofoddtreatmenteffect.view.fragment_zhu;
 
 import java.security.PublicKey;
 
-
+//宿主活动用于展示各个fragment
 public class MainActivity2 extends BaseActivity implements View.OnClickListener {
 
     public Fragment zhu,jie,wen,she;
@@ -31,6 +31,7 @@ public class MainActivity2 extends BaseActivity implements View.OnClickListener 
         initview();
     }
 
+//    跳转fragment
     public void JumpFrag(String frag){
         switch (frag) {
             case "zhuye":
@@ -52,7 +53,7 @@ public class MainActivity2 extends BaseActivity implements View.OnClickListener 
         }
     }
 
-
+//    初始化视图
     public void initview(){
         JumpFrag("zhuye");
 
@@ -72,6 +73,7 @@ public class MainActivity2 extends BaseActivity implements View.OnClickListener 
 
     }
 
+//    跳转按钮背景变化
     public void ButtonBackground(String bt){
         switch (bt) {
             case "zhuye":

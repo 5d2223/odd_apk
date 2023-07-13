@@ -30,6 +30,7 @@ public class fragment_set extends Fragment implements BaseView {
 
         text = view.findViewById(R.id.tv);
 
+//        显示提示词
         if(getArguments()!=null){
             text.setHint(getArguments().get("1").toString());
         }
@@ -38,6 +39,7 @@ public class fragment_set extends Fragment implements BaseView {
 
         button = view.findViewById(R.id.bt);
         button.setOnClickListener(new View.OnClickListener() {
+//            跳转同时将填写的消息通过prcenter存入数据库对应位置
             @Override
             public void onClick(View view) {
                 if(getArguments().get("1").toString().contains("手机")){

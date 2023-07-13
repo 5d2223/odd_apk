@@ -50,7 +50,8 @@ public class fragment_ERC extends Fragment implements View.OnClickListener,BaseV
         return view;
     }
 
-    public void DersScore(){
+//    erc问卷题目展示和得分回传
+    public void ercScore(){
         Bundle bundle = new Bundle();
         fragment_wenjuan wenjuan = new fragment_wenjuan();
         count++;
@@ -71,26 +72,26 @@ public class fragment_ERC extends Fragment implements View.OnClickListener,BaseV
                 if (count==4|count==5|count==9|count==11|count==15|count==17){
                     score=score+4;
                 }else {score++;}
-                DersScore();
+                ercScore();
                 break;
             case R.id.b22:
                 if (count==4|count==5|count==9|count==11|count==15|count==17){
                     score=score+3;
                 }else {score=score+2;}
-                DersScore();
+                ercScore();
                 break;
             case R.id.b23:
                 if (count==4|count==5|count==9|count==11|count==15|count==17){
                     score=score+2;
                 }else {score=score+3;}
-                DersScore();
+                ercScore();
                 break;
             case R.id.b24:
                 count++;
                 if (count==4|count==5|count==9|count==11|count==15|count==17){
                     score=score+1;
                 }else {score=score+4;}
-                DersScore();
+                ercScore();
                 break;
             default:
                 break;
