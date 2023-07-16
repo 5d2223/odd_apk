@@ -111,17 +111,17 @@ public class fragment_shezhi extends Fragment implements View.OnClickListener,Ba
 //    从precenter调用show方法之后回调方法用于展示个人信息
     @Override
     public void Display_personal_information(String[] inform) {
-        if(!Objects.equals(inform[0], "0")){
+        if(inform[0]!=null){
             phone.setText("手机："+inform[0]);
         }else {
             phone.setText("手机");
         }
-        if(!Objects.equals(inform[1], "0")){
+        if(inform[1]!=null){
             mail.setText("邮箱："+inform[1]);
         }else{
             mail.setText("邮箱");
         }
-        if(!Objects.equals(inform[2], "0")){
+        if(inform[2]!=null){
             wechat.setText("微信："+inform[2]);
         }else {
             wechat.setText("微信");
