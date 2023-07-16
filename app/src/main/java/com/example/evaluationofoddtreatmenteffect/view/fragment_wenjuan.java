@@ -7,18 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
-
 import com.example.evaluationofoddtreatmenteffect.R;
+
 
 
 public class fragment_wenjuan extends Fragment implements View.OnClickListener{
 
     public Button faces,erc,ders,api,odd;
     public TextView show;
+
+    public fragment_FACES FACES = new fragment_FACES();
+    public fragment_ERC ERC = new fragment_ERC();
+    public fragment_DERS DERS = new fragment_DERS();
+    public fragment_API API = new fragment_API();
+    public fragment_ODD ODD = new fragment_ODD();
 
     public void ButtonBackground(){
         if(getArguments()!=null){
@@ -113,30 +117,26 @@ public class fragment_wenjuan extends Fragment implements View.OnClickListener{
 
         ButtonBackground();
 
+
         return view;
     }
 
     public void JumpFrag(String frag){
         switch (frag) {
             case "faces":
-                fragment_FACES faces = new fragment_FACES();
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,faces).commit();
+                getActivity().getFragmentManager().beginTransaction().add(R.id.frameLayout,FACES).commit();
                 break;
             case "erc":
-                fragment_ERC erc = new fragment_ERC();
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,erc).commit();
+                getActivity().getFragmentManager().beginTransaction().add(R.id.frameLayout,ERC).commit();
                 break;
             case "ders":
-                fragment_DERS ders = new fragment_DERS();
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,ders).commit();
+                getActivity().getFragmentManager().beginTransaction().add(R.id.frameLayout,DERS).commit();
                 break;
             case "api":
-                fragment_API api = new fragment_API();
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,api).commit();
+                getActivity().getFragmentManager().beginTransaction().add(R.id.frameLayout,API).commit();
                 break;
             case "odd":
-                fragment_ODD odd = new fragment_ODD();
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.frameLayout,odd).commit();
+                getActivity().getFragmentManager().beginTransaction().add(R.id.frameLayout,ODD).commit();
                 break;
         }
     }

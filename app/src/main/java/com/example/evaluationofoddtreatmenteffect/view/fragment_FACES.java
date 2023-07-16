@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.evaluationofoddtreatmenteffect.MainActivity;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
 import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
@@ -19,7 +20,6 @@ import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 public class fragment_FACES extends Fragment implements View.OnClickListener,BaseView{
 
     public static String[] question = new String[30];
-
     @Override
     public <T> void wenjuan(T[] data) {
         question = (String[]) data;
@@ -59,6 +59,9 @@ public class fragment_FACES extends Fragment implements View.OnClickListener,Bas
         precenter = new Presenter(fragment_FACES.this);
         precenter.question("FACES.json",30);
 
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.enable();
+
         return view;
     }
 
@@ -66,14 +69,18 @@ public class fragment_FACES extends Fragment implements View.OnClickListener,Bas
     public void FacesScore(){
         count++;
         Bundle bundle = new Bundle();
-        fragment_wenjuan wenjuan = new fragment_wenjuan();
         if (count<31){
             textView.setText("问题：\n\n"+question[count-1]);
         }else {
             precenter.WenjuanUpdate(score,"faces");
             bundle.putString("score","您的FACES问卷总得分为："+score);
+            fragment_wenjuan wenjuan =new fragment_wenjuan();
             wenjuan.setArguments(bundle);
-            getFragmentManager().beginTransaction().replace(R.id.frameLayout,wenjuan).commit();
+//            移除wenjuanfragment添加新的wenjuanfragment
+            getFragmentManager().beginTransaction()
+                    .remove(getActivity().getFragmentManager().findFragmentByTag("wenjuan"))
+                    .remove(fragment_FACES.this)
+                    .add(R.id.frameLayout,wenjuan,"wenjuan").commit();
         }
     }
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.evaluationofoddtreatmenteffect.MainActivity;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
 import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
@@ -45,7 +46,8 @@ public class fragment_DERS extends Fragment implements View.OnClickListener,Base
 
         precenter =new Presenter(fragment_DERS.this);
         precenter.question("DERS.json",36);
-
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.enable();
         return view;
     }
 
@@ -60,7 +62,10 @@ public class fragment_DERS extends Fragment implements View.OnClickListener,Base
             precenter.WenjuanUpdate(score,"ders");
             bundle.putString("score","您的DERS问卷总得分为："+score);
             wenjuan.setArguments(bundle);
-            getFragmentManager().beginTransaction().replace(R.id.frameLayout,wenjuan).commit();
+            getFragmentManager().beginTransaction()
+                    .remove(getActivity().getFragmentManager().findFragmentByTag("wenjuan"))
+                    .remove(fragment_DERS.this)
+                    .add(R.id.frameLayout,wenjuan,"wenjuan").commit();
         }
     }
 

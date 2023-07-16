@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 
 import androidx.annotation.Nullable;
 
+import com.example.evaluationofoddtreatmenteffect.MainActivity;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.bean.results;
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -18,9 +19,8 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 
 public class fragment_ODD extends Fragment {
-
     results results = new results();
-
+    public MainActivity mainActivity;
     private ArrayList<CheckBox> checkBoxes =new ArrayList<>();
 
     public int score=0;
@@ -50,6 +50,9 @@ public class fragment_ODD extends Fragment {
         checkBoxes.add(checkBox7);
         checkBoxes.add(checkBox8);
 
+        mainActivity = (MainActivity) getActivity();
+        mainActivity.enable();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,8 +71,7 @@ public class fragment_ODD extends Fragment {
                 }
 
                 Bundle bundle = new Bundle();
-                fragment_wenjuan wenjuan = new fragment_wenjuan();
-
+                fragment_wenjuan wenjuan =new fragment_wenjuan();
                 if (score==0){
                     String scores = String.valueOf(score);
                     bundle.putString("score","您的孩子的ODD评分为："+scores+"分\n\n"+"您的孩子十分健康。如仍希望继续进行其他问卷的检测可点击问卷按钮！");
@@ -84,7 +86,10 @@ public class fragment_ODD extends Fragment {
                     bundle.putString("score","您的孩子的ODD评分为："+scores+"分\n\n"+"您的孩子极大概率身患ODD。请务必点击问卷按钮进行其他问卷！检测结果可以为您孩子的治疗方案提供参考！");
                     wenjuan.setArguments(bundle);
                 }
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout,wenjuan).commit();
+                getFragmentManager().beginTransaction()
+                        .remove(getActivity().getFragmentManager().findFragmentByTag("wenjuan"))
+                        .remove(fragment_ODD.this)
+                        .add(R.id.frameLayout,wenjuan,"wenjuan").commit();
             }
         });
 

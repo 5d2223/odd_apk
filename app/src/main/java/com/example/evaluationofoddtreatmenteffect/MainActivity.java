@@ -1,9 +1,6 @@
 package com.example.evaluationofoddtreatmenteffect;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -18,7 +15,33 @@ import com.example.evaluationofoddtreatmenteffect.view.fragment_zhu;
 //宿主活动用于展示各个fragment
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
+    public fragment_zhu f_zhu = new fragment_zhu();
+    public fragment_jieshao f_jieshao = new fragment_jieshao();
+    public fragment_wenjuan f_wenjuan;
+    public fragment_shezhi f_shezhi = new fragment_shezhi();
+
     public Button zhuye,jieshao,wenjuan,shezhi,back,notice;
+
+//    更新wenjuanfragment
+    public void setWenjuan(fragment_wenjuan wenjuan){
+        f_wenjuan=wenjuan;
+    }
+
+//    设置按钮为不可点击
+    public void enable(){
+        zhuye.setEnabled(false);
+        jieshao.setEnabled(false);
+        wenjuan.setEnabled(false);
+        shezhi.setEnabled(false);
+    }
+
+//    设置按钮为可点击
+    public void able(){
+        zhuye.setEnabled(true);
+        jieshao.setEnabled(true);
+        wenjuan.setEnabled(true);
+        shezhi.setEnabled(true);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,28 +54,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void JumpFrag(String frag){
         switch (frag) {
             case "zhuye":
-                fragment_zhu zhu = new fragment_zhu();
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout, zhu).commit();
+                getFragmentManager().beginTransaction().show(f_zhu).hide(f_jieshao).hide(f_wenjuan).hide(f_shezhi).commit();
                 break;
             case "jieshao":
-                fragment_jieshao jieshao = new fragment_jieshao();
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout, jieshao).commit();
+                getFragmentManager().beginTransaction().show(f_jieshao).hide(f_zhu).hide(f_wenjuan).hide(f_shezhi).commit();
                 break;
             case "wenjuan":
-                fragment_wenjuan wenjuan = new fragment_wenjuan();
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout, wenjuan).commit();
+                getFragmentManager().beginTransaction().show(f_wenjuan).hide(f_jieshao).hide(f_zhu).hide(f_shezhi).commit();
                 break;
             case "shezhi":
-                fragment_shezhi shezhi = new fragment_shezhi();
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout, shezhi).commit();
+                getFragmentManager().beginTransaction().show(f_shezhi).hide(f_jieshao).hide(f_wenjuan).hide(f_zhu).commit();
                 break;
         }
     }
 
+
 //    初始化视图
     public void initview(){
-        JumpFrag("zhuye");
-
         zhuye = findViewById(R.id.zhuye);
         jieshao = findViewById(R.id.jieshao);
         wenjuan = findViewById(R.id.wenjuan);
@@ -67,6 +85,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         back.setOnClickListener(this);
         notice.setOnClickListener(this);
 
+        if(getFragmentManager().findFragmentByTag("wenjuan")==null){
+            f_wenjuan = new fragment_wenjuan();
+        }else {
+            f_wenjuan = (fragment_wenjuan) getFragmentManager().findFragmentByTag("wenjuan");
+        }
+
+        getFragmentManager().beginTransaction()
+                .add(R.id.frameLayout,f_zhu,"zhu")
+                .add(R.id.frameLayout,f_jieshao,"jieshao")
+                .add(R.id.frameLayout,f_wenjuan,"wenjuan")
+                .add(R.id.frameLayout,f_shezhi,"shezhi")
+                .commit();
+
+        JumpFrag("zhuye");
     }
 
 //    跳转按钮背景变化

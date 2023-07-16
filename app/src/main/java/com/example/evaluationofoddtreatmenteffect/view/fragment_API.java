@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.evaluationofoddtreatmenteffect.MainActivity;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
 import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
@@ -58,7 +59,8 @@ public class fragment_API extends Fragment implements View.OnClickListener,BaseV
 
         precenter = new Presenter(fragment_API.this);
         precenter.question("API.json",9);
-
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.enable();
         return view;
     }
 //    Api问卷题目展示和得分回传
@@ -72,7 +74,10 @@ public class fragment_API extends Fragment implements View.OnClickListener,BaseV
             precenter.WenjuanUpdate(score,"api");
             bundle.putString("score", "您的API分量表问卷总得分为：" + score);
             wenjuan.setArguments(bundle);
-            getFragmentManager().beginTransaction().replace(R.id.frameLayout, wenjuan).commit();
+            getFragmentManager().beginTransaction()
+                    .remove(getActivity().getFragmentManager().findFragmentByTag("wenjuan"))
+                    .remove(fragment_API.this)
+                    .add(R.id.frameLayout,wenjuan,"wenjuan").commit();
         }
     }
 

@@ -10,12 +10,14 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.evaluationofoddtreatmenteffect.MainActivity;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.Presenter.BasePresenter;
 import com.example.evaluationofoddtreatmenteffect.Presenter.Presenter;
 
 public class fragment_ERC extends Fragment implements View.OnClickListener,BaseView{
 
+    public MainActivity mainActivity;
     private int count = 1;
     private int score = 0;
     public String [] question =new String[23];
@@ -42,7 +44,8 @@ public class fragment_ERC extends Fragment implements View.OnClickListener,BaseV
 
         precenter =new Presenter(fragment_ERC.this);
         precenter.question("ERC.json",23);
-
+        mainActivity = (MainActivity) getActivity();
+        mainActivity.enable();
 
         return view;
     }
@@ -58,7 +61,12 @@ public class fragment_ERC extends Fragment implements View.OnClickListener,BaseV
             precenter.WenjuanUpdate(score,"erc");
             bundle.putString("score","您的ERC问卷总得分为："+score);
             wenjuan.setArguments(bundle);
-            getFragmentManager().beginTransaction().replace(R.id.frameLayout,wenjuan).commit();
+            getFragmentManager().beginTransaction()
+                    .remove(getActivity().getFragmentManager().findFragmentByTag("wenjuan"))
+                    .remove(fragment_ERC.this)
+                    .add(R.id.frameLayout,wenjuan,"wenjuan").commit();
+            mainActivity.able();
+            mainActivity.setWenjuan(wenjuan);
         }
     }
 
