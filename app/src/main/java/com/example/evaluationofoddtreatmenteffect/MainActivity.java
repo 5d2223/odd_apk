@@ -3,6 +3,7 @@ package com.example.evaluationofoddtreatmenteffect;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,13 +15,8 @@ import com.example.evaluationofoddtreatmenteffect.view.fragment_shezhi;
 import com.example.evaluationofoddtreatmenteffect.view.fragment_wenjuan;
 import com.example.evaluationofoddtreatmenteffect.view.fragment_zhu;
 
-import java.security.PublicKey;
-
 //宿主活动用于展示各个fragment
-public class MainActivity2 extends BaseActivity implements View.OnClickListener {
-
-    public Fragment zhu,jie,wen,she;
-    public FragmentManager fragmentManager;
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public Button zhuye,jieshao,wenjuan,shezhi,back,notice;
 
