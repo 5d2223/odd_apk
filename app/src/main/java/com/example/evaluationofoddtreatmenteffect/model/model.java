@@ -34,7 +34,7 @@ public class model implements BaseModel{
     public void request(final callback callback,String url,int length){
 
         OkHttpClient client = new OkHttpClient();
-        Request request =new Request.Builder().url("https://2bc248f8.r16.cpolar.top/files/"+url)
+        Request request =new Request.Builder().url("https://6563a02e.r16.cpolar.top/files/"+url)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
