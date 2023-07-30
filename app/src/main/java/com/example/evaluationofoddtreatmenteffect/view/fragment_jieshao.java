@@ -47,7 +47,7 @@ public class fragment_jieshao extends Fragment implements BaseView{
         LinearLayoutManager layoutManager =new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        myAdapter = new myAdapter(wenjuan);
+        myAdapter = new myAdapter(wenjuan,getActivity().getApplicationContext());
         recyclerView.setAdapter(myAdapter);
 
         return  view;
@@ -65,11 +65,11 @@ public class fragment_jieshao extends Fragment implements BaseView{
         handler.post(new Runnable() {
             @Override
             public void run() {
-                jieshao=new jieshao(text[0], R.drawable.odd);
-                jieshao1=new jieshao(text[1], R.drawable.faces);
-                jieshao2=new jieshao(text[2], R.drawable.api);
-                jieshao3=new jieshao(text[3], R.drawable.ders);
-                jieshao4=new jieshao(text[4], R.drawable.erc);
+                jieshao=new jieshao(text[0], "https://3a747392.r16.cpolar.top/files/odd.png");
+                jieshao1=new jieshao(text[1], "https://3a747392.r16.cpolar.top/files/faces.png");
+                jieshao2=new jieshao(text[2], "https://3a747392.r16.cpolar.top/files/api.png");
+                jieshao3=new jieshao(text[3], "https://3a747392.r16.cpolar.top/files/ders.png");
+                jieshao4=new jieshao(text[4], "https://3a747392.r16.cpolar.top/files/erc.png");
 
                 wenjuan.add(jieshao);
                 wenjuan.add(jieshao1);

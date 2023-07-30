@@ -1,5 +1,6 @@
 package com.example.evaluationofoddtreatmenteffect.model;
 
+
 import com.example.evaluationofoddtreatmenteffect.bean.results;
 
 import org.json.JSONArray;
@@ -13,7 +14,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+
 import com.example.evaluationofoddtreatmenteffect.Presenter.callback;
+
 
 import java.io.IOException;
 
@@ -33,8 +36,39 @@ public class model implements BaseModel{
 
     public void request(final callback callback,String url,int length){
 
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://3a747392.r16.cpolar.top/files/")
+//                .client(new OkHttpClient())
+//                .addConverterFactory(GsonConverterFactory.create(new Gson()))
+//                .build();
+//
+//        ApiService apiService = retrofit.create(ApiService.class);
+//
+//        Call<JSONArray> call = apiService.getData(url);
+//        call.enqueue(new Callback<JSONArray>() {
+//            @Override
+//            public void onResponse(Call<JSONArray> call, Response<JSONArray> response) {
+//                JSONArray array = response.body();
+//                try {
+//                    String[] wen = new String[length];
+//                    for(int i=0;i<array.length();i++){
+//                        wen[i]=array.getString(i);
+//                    }
+//                    callback.onSuccess(wen,length);
+//                } catch (JSONException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JSONArray> call, Throwable t) {
+//                callback.onFailure();
+//            }
+//        });
+
+
         OkHttpClient client = new OkHttpClient();
-        Request request =new Request.Builder().url("https://3d3c5a9d.r16.cpolar.top/files/"+url)
+        Request request =new Request.Builder().url("https://3a747392.r16.cpolar.top/files/"+url)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

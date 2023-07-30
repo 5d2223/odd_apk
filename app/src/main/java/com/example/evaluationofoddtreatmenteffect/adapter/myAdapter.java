@@ -1,5 +1,6 @@
 package com.example.evaluationofoddtreatmenteffect.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.evaluationofoddtreatmenteffect.R;
 import com.example.evaluationofoddtreatmenteffect.bean.jieshao;
 
@@ -19,14 +21,15 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder>{
 
 //    列表数据
     private List<jieshao> list;
-
+    private Context context;
 //    更新数据
     public void setData(List<jieshao> List){
         list = List;
     }
 
-    public myAdapter(List<jieshao> list) {
+    public myAdapter(List<jieshao> list, Context context) {
         this.list = list;
+        this.context=context;
     }
 
     @NonNull
@@ -40,7 +43,10 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mess.setText(list.get(position).getJieshao());
-        holder.img.setImageResource(list.get(position).getImg());
+        Glide.with(context)
+                .load(list.get(position).getImg())
+                .into(holder.img);
+//        holder.img.setImageResource(list.get(position).getImg());
     }
 
 

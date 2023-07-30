@@ -4,17 +4,17 @@ package com.example.evaluationofoddtreatmenteffect.bean;
 public class jieshao {
     private String jieshao;
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
-    private int img;
+    private String img;
 
-    public jieshao(String jieshao, int img) {
+    public jieshao(String jieshao, String img) {
         this.jieshao = jieshao;
         this.img = img;
     }

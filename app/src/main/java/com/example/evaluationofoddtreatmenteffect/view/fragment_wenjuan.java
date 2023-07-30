@@ -11,11 +11,24 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.example.evaluationofoddtreatmenteffect.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class fragment_wenjuan extends Fragment implements View.OnClickListener{
 
-    public Button faces,erc,ders,api,odd;
+    @BindView(R.id.fa)
+    public Button faces;
+    @BindView(R.id.erc)
+    Button erc;
+    @BindView(R.id.ders)
+    Button ders;
+    @BindView(R.id.api)
+    Button api;
+    @BindView(R.id.odd)
+    Button odd;
+
+    @BindView(R.id.show)
     public TextView show;
 
     public fragment_FACES FACES = new fragment_FACES();
@@ -102,12 +115,7 @@ public class fragment_wenjuan extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wenjuan,container,false);
-        faces =view.findViewById(R.id.fa);
-        erc = view.findViewById(R.id.erc);
-        ders = view.findViewById(R.id.ders);
-        api = view.findViewById(R.id.api);
-        odd = view.findViewById(R.id.odd);
-        show = view.findViewById(R.id.show);
+        ButterKnife.bind(this,view);
 
         faces.setOnClickListener(this);
         erc.setOnClickListener(this);

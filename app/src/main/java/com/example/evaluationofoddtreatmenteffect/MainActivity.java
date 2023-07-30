@@ -12,6 +12,9 @@ import com.example.evaluationofoddtreatmenteffect.view.fragment_shezhi;
 import com.example.evaluationofoddtreatmenteffect.view.fragment_wenjuan;
 import com.example.evaluationofoddtreatmenteffect.view.fragment_zhu;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 //宿主活动用于展示各个fragment
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -20,7 +23,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public fragment_wenjuan f_wenjuan;
     public fragment_shezhi f_shezhi = new fragment_shezhi();
 
-    public Button zhuye,jieshao,wenjuan,shezhi,back,notice;
+    @BindView(R.id.zhuye)
+    Button zhuye;
+
+    @BindView(R.id.jieshao)
+    Button jieshao;
+    @BindView(R.id.wenjuan)
+    Button wenjuan;
+    @BindView(R.id.shezhi)
+    Button shezhi;
+    @BindView(R.id.back)
+    Button back;
+    @BindView(R.id.notice)
+    Button notice;
 
 //    更新wenjuanfragment
     public void setWenjuan(fragment_wenjuan wenjuan){
@@ -47,6 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        ButterKnife.bind(this);
         initview();
     }
 
@@ -71,12 +87,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 //    初始化视图
     public void initview(){
-        zhuye = findViewById(R.id.zhuye);
-        jieshao = findViewById(R.id.jieshao);
-        wenjuan = findViewById(R.id.wenjuan);
-        shezhi = findViewById(R.id.shezhi);
-        back = findViewById(R.id.back);
-        notice = findViewById(R.id.notice);
 
         zhuye.setOnClickListener(this);
         jieshao.setOnClickListener(this);
